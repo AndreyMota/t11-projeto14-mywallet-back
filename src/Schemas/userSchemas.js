@@ -3,7 +3,7 @@ import Joi from "joi";
 const signUpSchema = Joi.object({
     email: Joi.string().required(),
     nome: Joi.string().required(),
-    senha: Joi.string().min(3).required()
+    senha: Joi.string().min(3).email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required()
 });
 
 const signInSchema = Joi.object({
