@@ -1,9 +1,9 @@
 import Joi from "joi";
 
 const signUpSchema = Joi.object({
-    email: Joi.string().required(),
+    email: Joi.string().email().required(),
     nome: Joi.string().required(),
-    senha: Joi.string().min(3).email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required()
+    senha: Joi.string().min(3).required()
 });
 
 const signInSchema = Joi.object({
