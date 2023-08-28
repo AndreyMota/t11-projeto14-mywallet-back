@@ -49,7 +49,7 @@ export async function ListaOperacoes(req, res) {
     const aid = new ObjectId(req.userId);
     try {
         const user = await db.collection("users").findOne({ _id: aid });
-        if (user) return res.status(200).json({ data: user.ops });
+        if (user) return res.status(200).send(user.ops);
         else return res.status(404).send('Usuario não encontrado');
         
 

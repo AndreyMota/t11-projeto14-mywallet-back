@@ -48,3 +48,12 @@ export async function getUsers(req, res) {
         res.sendStatus(500);
     }
 }
+
+export async function getUser(req, res) {
+    try {
+        const user = await db.collection("users").findOne(req.userId);
+        res.send(user);
+    } catch (error) {
+        res.sendStatus(500);
+    }
+}
