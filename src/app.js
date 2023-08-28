@@ -12,7 +12,7 @@ app.use(cors());
 app.use(json());
 app.use(router);
 
-const porta = process.env.PORT
+const porta = process.env.PORT || 5000
 app.listen(porta, () => {
     console.log(`Ouvindo na porta ${porta}`)
 }) 
